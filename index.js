@@ -10,6 +10,16 @@ const QUERY_PARAM = process.env.QUERY_PARAM || 'action';
 app.use(cors());
 
 app.get('/:id', async (req, res) => {
+    const customHeader = req.header('X-Requested-With');
+    
+    if (customHeader !== 'XMLHttpRequest') {
+        console.warn(`Blocked request without correct header. Received: ${customHeader}`);
+        return res.status(403).json({ 
+            error: 'Forbidden', 
+            message: 'Forbidden' 
+        });
+    }
+    
     if (!TARGET_DOMAIN) {
         return res.status(500).send('Environment variable TARGET_DOMAIN is missing!');
     }
