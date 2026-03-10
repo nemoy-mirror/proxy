@@ -1,16 +1,13 @@
 {
-  "name": "universal-redirect-proxy",
+  "name": "universal-proxy-server",
   "version": "1.0.0",
-  "description": "Simple redirect proxy with env variables",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.18.2",
-    "cors": "^2.8.5"
-  },
-  "engines": {
-    "node": ">=18.0.0"
+    "cors": "^2.8.5",
+    "axios": "^1.6.0"
   }
 }
