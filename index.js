@@ -18,7 +18,7 @@ app.get('/:id', async (req, res) => {
     const cleanDomain = TARGET_DOMAIN.endsWith('/') ? TARGET_DOMAIN.slice(0, -1) : TARGET_DOMAIN;
     
     // Формируем полный URL для запроса
-    const targetUrl = `${cleanDomain}/${QUERY_PARAM}=${id}`;
+    const targetUrl = `${cleanDomain}?${QUERY_PARAM}=${id}`;
 
     try {
         console.log(`Fetching data from: ${targetUrl}`);
